@@ -1,0 +1,44 @@
+              simulação epidemiológica modelo SIR
+Sendo os ítens do checkpoint 1:
+  1-Implementação do modelo SIR e saída no terminal;
+  Leitura dos parâmetros iniciais de simulação à partir de um arquivo de texto (formato do arquivo definido pela equipe);
+  2-Implementação do modelo SIR com saída em arquivo de texto csv;
+  3-Identificar e elencar modificações no código que serão cobradas no checkpoint 2.
+Foram entregues os ítens 1 e 2. Porém o código ainda não estava modularizado.
+
+ítens no checkpoint 2:
+  1-Plotagem dos gráficos de SIR após saída (para isso, é necessário usar uma ferramenta extra que deve ser definida à escolha da equipe);
+  2-Implementação da simulação dos dois cenários de contenção (cenários 1 e 2);
+  3-Implementação das modificações sugeridas no Checkpoint 1
+Foram entregues os ítens 1 e 3. A implementação dos cénarios ficaram incompletas.
+
+No arquivo de entrada(entrada.txt) estão respectivamente as entradas para as variaveis:
+s0,i0,r0,h,n_b,t_b,s_b0,i_b0,m_k,n_k,t_k,t,t_b2,t_k2,h_t_b2,h_t_k2.Deixado incialmente como:
+
+s0= 68 //s0 = número de indivíduos suscetíveis no instante 0(que ainda não estão contaminados);
+i0= 2 //i0 = número de indivíduos infectados no instante 0(capazes de infectar indivíduos S);
+r0 = 0 //r0 = número de indivíduos removidos no instante 0(que se recuperaram, tornaram-se imunes ou faleceram).
+h = 0.1 //h = pequeno intervalo de tempo (em horas)
+n_b = 12 //n_b = número de pessoas suscetíveis que se infectaram em um intervalo de tempo T_b;
+t_b = 24 //determinado período de tempo
+s_b0 = 10 // S_b0 = número de pessoas suscetíveis no início da observação
+i_b0 = 50 // i_b0 = número de pessoas infectadas no início da observação
+m_k = 6 // quantidade de pessoas que se recuperaram em um determinado periodo de tempo(T_k)
+n_k = 22 //Certa quantidade de indivídeuos
+t_k = 24 //determinado período de tempo
+t = 21 // tempo de simulação em dias
+
+m_k,n_k e t_k são usados para calcular o valor de K pela fórmula(k=m_kn_k*T_k).Sendo k a probabilidade que um indivíduo se recupere.
+
+t_b,s_b0,i_b0,n_b são usados para calcular b pela fórmula(N_b/T_b*S_b0*I_b0). Sendo b a facilidade de contágio de um indivíduo.
+
+t_b2 = 55 
+t_k2 = 15 
+h_t_b2 = 3.2  
+h_t_k2 =  5.9
+(t_b2,t_k2,h_t_b2,h_t_k2 Acabaram não sendo usadas pela questão dos cenários estar incompleta)
+
+No arquivo lerarquivo.c está todo o código de leitura do arquivo entrada.txt, e em csv.c está o código de impressão dos resultados no arquivo saida.csv.
+Para compilar o código por um terminal linux basta digitar o comando gcc -o main alocacao.c calcula.c calcula_b.c calcula_k.c csv.c desaloca.c lerarquivo.c main.c . Depois basta executar o arquivo binário pelo comando ./main
+para plotar o gráfico basta executar o aquivo plot.py pelo comando : python plot.py.
+
